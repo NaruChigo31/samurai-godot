@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://d206t7ni60j8d"]
+
+[ext_resource type="Script" path="res://check_point.gd" id="1_g6yx7"]
+[ext_resource type="Texture2D" uid="uid://j5uydc0a1pls" path="res://assets/bg/shop.png" id="2_0rpr5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec6m8"]
+size = Vector2(128, 176)
+
+[sub_resource type="Animation" id="Animation_8raen"]
+resource_name = "activate"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpgnm"]
+_data = {
+"activate": SubResource("Animation_8raen")
+}
+
+[node name="CheckPoint" type="Area2D"]
+script = ExtResource("1_g6yx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_ec6m8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gpgnm")
+}
+
+[node name="Shop" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -16)
+scale = Vector2(0.244444, 0.244444)
+texture = ExtResource("2_0rpr5")
+
+[node name="Double" type="Button" parent="Shop"]
+offset_left = -589.0
+offset_top = 33.0
+offset_right = -278.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 50
+text = "double
+1000 souls"
+
+[node name="Dash" type="Button" parent="Shop"]
+anchors_preset = -1
+anchor_left = -7.10607e-05
+anchor_right = 0.214773
+anchor_bottom = 0.240278
+offset_left = 196.455
+offset_top = 32.7273
+offset_right = 285.455
+offset_bottom = 88.7273
+theme_override_font_sizes/font_size = 50
+text = "Dash
+1500 souls
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Shuriken" type="Button" parent="Shop"]
+offset_left = -196.0
+offset_top = 33.0
+offset_right = 166.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 50
+text = "shuriken
+2000 souls"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="pressed" from="Shop/Double" to="." method="_on_double_pressed"]
+[connection signal="pressed" from="Shop/Dash" to="." method="_on_dash_pressed"]
+[connection signal="pressed" from="Shop/Shuriken" to="." method="_on_shuriken_pressed"]

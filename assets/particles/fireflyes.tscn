@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi8fomesnonxu"]
+
+[ext_resource type="Texture2D" uid="uid://bfd60l1dmmqbg" path="res://assets/particles/firefly.png" id="1_k1vwi"]
+
+[sub_resource type="Curve" id="Curve_2f7fx"]
+min_value = -1.0
+_data = [Vector2(0, 0.538462), 0.0, 0.0, 0, 0, Vector2(1, -0.428571), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oeghd"]
+_data = [Vector2(0, 0.450549), 0.0, 0.0, 0, 0, Vector2(0.491228, 0.923077), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_11o17"]
+colors = PackedColorArray(1, 1, 1, 1, 0.518791, 0.42793, 1.92523e-07, 1)
+
+[sub_resource type="Curve" id="Curve_04j3v"]
+min_value = -1.0
+_data = [Vector2(0, 0.230769), 0.0, 0.0, 0, 0, Vector2(1, -0.406593), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fbkxc"]
+max_value = 200.0
+_data = [Vector2(0, 189.011), 0.0, 0.0, 0, 0, Vector2(0.426901, 0), 0.0, 0.0, 0, 0, Vector2(1, 103.297), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_6ag53"]
+offsets = PackedFloat32Array(0, 0.829932, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rdwbh"]
+gradient = SubResource("Gradient_6ag53")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="fireflyes" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+lifetime = 3.0
+preprocess = 10.0
+explosiveness = 0.26
+randomness = 0.57
+lifetime_randomness = 0.5
+texture = ExtResource("1_k1vwi")
+emission_shape = 3
+emission_rect_extents = Vector2(32, 32)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_max = 10.53
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+orbit_velocity_curve = SubResource("Curve_2f7fx")
+tangential_accel_min = -5.0
+tangential_accel_max = 5.0
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_oeghd")
+color = Color(0.921569, 0.933333, 0.447059, 1)
+color_ramp = SubResource("Gradient_11o17")
+hue_variation_min = -0.25
+hue_variation_max = 0.25
+hue_variation_curve = SubResource("Curve_04j3v")
+anim_speed_max = 10.43
+anim_speed_curve = SubResource("Curve_fbkxc")
+anim_offset_max = 1.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="CPUParticles2D"]
+scale = Vector2(1.4541, 1.4541)
+color = Color(1, 0.917647, 0, 1)
+range_z_max = 10
+texture = SubResource("GradientTexture2D_rdwbh")

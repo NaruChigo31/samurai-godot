@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4q336r051w2"]
+
+[sub_resource type="Gradient" id="Gradient_n518g"]
+offsets = PackedFloat32Array(0, 0.829932, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7jciw"]
+gradient = SubResource("Gradient_n518g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="cave lantern" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(1.1582, 1.1582)
+color = Color(0.823529, 0.376471, 0.345098, 1)
+range_z_max = 10
+texture = SubResource("GradientTexture2D_7jciw")

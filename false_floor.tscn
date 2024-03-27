@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p4a0gvt4psvy"]
+
+[ext_resource type="TileSet" uid="uid://ckjy5mi8lxhik" path="res://tilemap.tres" id="1_oween"]
+
+[node name="False floor" type="TileMap"]
+tile_set = ExtResource("1_oween")
+format = 2
+layer_1/tile_data = PackedInt32Array()

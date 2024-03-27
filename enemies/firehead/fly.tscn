@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://csmyuk0hy842m"]
+
+[ext_resource type="Script" path="res://fly.gd" id="1_sxbqr"]
+[ext_resource type="Texture2D" uid="uid://dgt77bin5diin" path="res://firehead-alive-Sheet.png" id="2_0owx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uojo"]
+size = Vector2(72, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si3sk"]
+atlas = ExtResource("2_0owx3")
+region = Rect2(0, 0, 205, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v25u"]
+atlas = ExtResource("2_0owx3")
+region = Rect2(205, 0, 205, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewr3a"]
+atlas = ExtResource("2_0owx3")
+region = Rect2(410, 0, 205, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crtud"]
+atlas = ExtResource("2_0owx3")
+region = Rect2(615, 0, 205, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78cnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si3sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v25u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewr3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crtud")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6x56"]
+size = Vector2(751, 143)
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.329594, 0.359124)
+script = ExtResource("1_sxbqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(209, 114.5)
+shape = SubResource("RectangleShape2D_0uojo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(205, 109)
+sprite_frames = SubResource("SpriteFrames_78cnn")
+frame_progress = 0.0844146
+
+[node name="chasing_direction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chasing_direction"]
+position = Vector2(618, 114.5)
+shape = SubResource("RectangleShape2D_f6x56")
+
+[node name="chasing_direction2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chasing_direction2"]
+position = Vector2(-202, 113)
+shape = SubResource("RectangleShape2D_f6x56")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="chasing_direction" to="." method="_on_chasing_direction_body_entered"]
+[connection signal="body_exited" from="chasing_direction" to="." method="_on_chasing_direction_body_exited"]
+[connection signal="body_entered" from="chasing_direction2" to="." method="_on_chasing_direction_2_body_entered"]
+[connection signal="body_exited" from="chasing_direction2" to="." method="_on_chasing_direction_2_body_exited"]

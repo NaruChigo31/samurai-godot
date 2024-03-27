@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://df0510uyhdf12"]
+
+[ext_resource type="Script" path="res://platform/move_platform.gd" id="1_2bqcn"]
+[ext_resource type="Texture2D" uid="uid://dg0ocdkyuftxs" path="res://platform/platform.png" id="2_1jcm1"]
+[ext_resource type="AudioStream" uid="uid://bdpgh3c21i4mq" path="res://assets/sounds/platform.mp3" id="3_03agu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xebjf"]
+size = Vector2(20, 5)
+
+[sub_resource type="Animation" id="Animation_batxc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sound:stream:loop")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nmirj"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.56, -1.56),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpsus"]
+_data = {
+"RESET": SubResource("Animation_batxc"),
+"move": SubResource("Animation_nmirj")
+}
+
+[node name="MovePlatform" type="Path2D"]
+script = ExtResource("1_2bqcn")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_03agu")
+volume_db = -13.579
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = 3.14159
+progress = 539.008
+rotates = false
+cubic_interp = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(5.09425e-06, -0.5)
+shape = SubResource("RectangleShape2D_xebjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(9.53674e-07, 4.76837e-07)
+rotation = 3.14159
+scale = Vector2(1.23739, 1.16834)
+texture = ExtResource("2_1jcm1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cpsus")
+}

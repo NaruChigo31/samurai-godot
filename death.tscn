@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c43a2fgaia8pl"]
+
+[ext_resource type="Script" path="res://death.gd" id="1_iviur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_656vj"]
+font_size = 64
+
+[node name="death" type="Node2D"]
+script = ExtResource("1_iviur")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 427.0
+offset_top = 153.0
+offset_right = 627.0
+offset_bottom = 268.0
+text = "You died"
+label_settings = SubResource("LabelSettings_656vj")
+
+[node name="exit" type="Button" parent="."]
+offset_left = 632.0
+offset_top = 293.0
+offset_right = 817.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 48
+text = "exit
+"
+flat = true
+
+[node name="restart" type="Button" parent="."]
+offset_left = 301.0
+offset_top = 291.0
+offset_right = 486.0
+offset_bottom = 446.0
+theme_override_font_sizes/font_size = 48
+text = "restart
+"
+flat = true
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="restart" to="." method="_on_button_pressed"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0d1tpwnvu5p3"]
+
+[ext_resource type="Script" path="res://chest.gd" id="1_jy1ba"]
+[ext_resource type="Texture2D" uid="uid://cwvhektbeficy" path="res://assets/chest normal-Sheet.png" id="2_1foow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iwe3"]
+atlas = ExtResource("2_1foow")
+region = Rect2(0, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egdwl"]
+atlas = ExtResource("2_1foow")
+region = Rect2(960, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ors"]
+atlas = ExtResource("2_1foow")
+region = Rect2(0, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rllcw"]
+atlas = ExtResource("2_1foow")
+region = Rect2(240, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtdaq"]
+atlas = ExtResource("2_1foow")
+region = Rect2(480, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_505gx"]
+atlas = ExtResource("2_1foow")
+region = Rect2(720, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxyp1"]
+atlas = ExtResource("2_1foow")
+region = Rect2(960, 0, 240, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixya0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iwe3")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egdwl")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61ors")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rllcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtdaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_505gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxyp1")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fkww"]
+size = Vector2(34, 23)
+
+[node name="chest" type="Node2D"]
+script = ExtResource("1_jy1ba")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.156, 0.156)
+sprite_frames = SubResource("SpriteFrames_ixya0")
+animation = &"opening"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_3fkww")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

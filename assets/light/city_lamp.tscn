@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfk5n68vakyep"]
+
+[sub_resource type="Gradient" id="Gradient_3tb0u"]
+offsets = PackedFloat32Array(0, 0.829932, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h7lmb"]
+gradient = SubResource("Gradient_3tb0u")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CityLamp" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(1.1582, 1.1582)
+color = Color(0.784314, 0.698039, 0.32549, 1)
+range_z_max = 10
+texture = SubResource("GradientTexture2D_h7lmb")
+texture_scale = 2.0

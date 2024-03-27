@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf1sa2vqxl4xy"]
+
+[ext_resource type="Script" path="res://panels_table.gd" id="1_vjmxy"]
+[ext_resource type="Texture2D" uid="uid://c7ixc3hudj2we" path="res://panels/panels_table.png" id="2_6x2e2"]
+[ext_resource type="Texture2D" uid="uid://d350fi1i4m2nx" path="res://panels/panel1.png" id="2_kve4t"]
+[ext_resource type="Texture2D" uid="uid://dq0votopwbtem" path="res://panels/panel2.png" id="3_utql0"]
+[ext_resource type="Texture2D" uid="uid://dikaqqhiht02x" path="res://panels/panel3.png" id="4_ihgps"]
+[ext_resource type="Texture2D" uid="uid://tppsq48qbsea" path="res://panels/panel4.png" id="5_1xs7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_catej"]
+size = Vector2(340, 102)
+
+[node name="panels_table" type="Node2D"]
+script = ExtResource("1_vjmxy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_catej")
+
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+offset_left = -153.0
+offset_top = -31.0
+offset_right = 154.0
+offset_bottom = 33.0
+texture = ExtResource("2_6x2e2")
+expand_mode = 1
+
+[node name="Panel1" type="Sprite2D" parent="."]
+position = Vector2(-121, 0.999992)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kve4t")
+
+[node name="Panel2" type="Sprite2D" parent="."]
+position = Vector2(-41, 1)
+scale = Vector2(0.355625, 0.355625)
+texture = ExtResource("3_utql0")
+
+[node name="Panel3" type="Sprite2D" parent="."]
+position = Vector2(41, 1)
+scale = Vector2(0.356617, 0.356617)
+texture = ExtResource("4_ihgps")
+
+[node name="Panel4" type="Sprite2D" parent="."]
+position = Vector2(122, 2)
+scale = Vector2(0.363588, 0.363588)
+texture = ExtResource("5_1xs7r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

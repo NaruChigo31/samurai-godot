@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1tclk4j8wvo"]
+
+[sub_resource type="Gradient" id="Gradient_y7wya"]
+offsets = PackedFloat32Array(0, 0.829932, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_js2qu"]
+gradient = SubResource("Gradient_y7wya")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="pink_lantern" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(1.1582, 1.1582)
+color = Color(0.611765, 0.176471, 0.376471, 1)
+range_z_max = 1
+texture = SubResource("GradientTexture2D_js2qu")
+texture_scale = 1.2
