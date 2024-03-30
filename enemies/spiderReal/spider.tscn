@@ -232,18 +232,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3tlb"]
-size = Vector2(57, 50.7042)
+size = Vector2(49.2958, 50.7042)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxhdn"]
-size = Vector2(191.875, 24.5)
+size = Vector2(191.203, 24.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksm0e"]
-size = Vector2(24, 36)
+size = Vector2(20, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xicbm"]
-size = Vector2(25, 36.75)
+size = Vector2(22.5, 36)
 
-[node name="Spider" type="RigidBody2D" groups=["enemy"]]
+[node name="Spider" type="RigidBody2D"]
 mass = 5.59
 gravity_scale = 2.162
 lock_rotation = true
@@ -251,7 +251,7 @@ script = ExtResource("1_xdb1w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
-polygon = PackedVector2Array(6, -13, 5, -12, 4, -11, 4, -10, 4, -9, 4, -8, 4, -7, 5, -6, 5, -5, 6, -4, 6, -3, 5, -2, 5, 0, 4, 1, 3, 2, 3, 3, 2, 4, 1, 5, 0, 5, -1, 5, -2, 4, -4, 3, -5, 3, -6, 2, -8, 2, -10, 2, -12, 2, -15, 2, -17, 3, -18, 4, -19, 6, -19, 8, -19, 10, -19, 11, -18, 12, -17, 13, -17, 16, -17, 18, -17, 19, -16, 19, -16, 19, -15, 19, -14, 19, -12, 19, -11, 19, -10, 19, -5, 19, 18, 19, 18, 13, 17, 11, 16, 9, 15, 6, 14, 3, 13, 0, 13, -2, 13, -4, 14, -6, 14, -9, 11, -13)
+polygon = PackedVector2Array(3.75, -11.25, 5, -2, -1, 5, -5, 3, -7.5, 1.25, -17.5, 1.25, -20, 5, -20, 18.75, 18, 19, 18, 13, 13, -2, 13.75, -11.25, 10, -13.75, 6.25, -13.75)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.188769, 0.2045)
@@ -263,29 +263,29 @@ frame_progress = 1.0
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
+position = Vector2(0.5, -1)
 scale = Vector2(0.71, 0.71)
 shape = SubResource("RectangleShape2D_d3tlb")
 
 [node name="FirePosRight" type="Marker2D" parent="."]
-position = Vector2(11, -4)
+position = Vector2(22, -6)
 gizmo_extents = 667.7
 
 [node name="FirePosLeft" type="Marker2D" parent="."]
-position = Vector2(-10, -4)
+position = Vector2(-17, -4)
 gizmo_extents = 667.7
 
 [node name="left" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
-position = Vector2(131, 0)
+position = Vector2(-129, 0)
 shape = SubResource("RectangleShape2D_sxhdn")
 
 [node name="right" type="Area2D" parent="."]
 position = Vector2(-309, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
-position = Vector2(178, 1)
+position = Vector2(437.602, 1)
 shape = SubResource("RectangleShape2D_sxhdn")
 
 [node name="random_generator" type="Timer" parent="."]
@@ -296,13 +296,13 @@ autostart = true
 position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack right"]
-position = Vector2(19, -1)
+position = Vector2(18, -1)
 shape = SubResource("RectangleShape2D_ksm0e")
 
 [node name="attack left" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack left"]
-position = Vector2(-20, -1.375)
+position = Vector2(-17, -1)
 shape = SubResource("RectangleShape2D_xicbm")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

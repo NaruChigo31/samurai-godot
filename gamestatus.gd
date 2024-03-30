@@ -22,7 +22,7 @@ var doubleJumpEnabled = true
 var dashEnabled = true
 var shurikenEnabled = true
 
-var coins = 7000
+var coins = 0
 
 
 

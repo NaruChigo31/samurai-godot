@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=3 uid="uid://oj28akky8ws5"]
+[gd_scene load_steps=176 format=3 uid="uid://oj28akky8ws5"]
 
 [ext_resource type="Script" path="res://samurai/CharacterBody2D.gd" id="1_q8d5f"]
 [ext_resource type="Script" path="res://samurai/Attack_area_left.gd" id="2_16m3v"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bs56ptiiuw3bg" path="res://assets/ui/soul coins/soul coin4.png" id="30_jntog"]
 [ext_resource type="Script" path="res://samurai/lives.gd" id="34_7ho5k"]
 [ext_resource type="AudioStream" uid="uid://dpohnk3poprtu" path="res://assets/sounds/run player.mp3" id="35_3nkfm"]
+[ext_resource type="Texture2D" uid="uid://pbssa682fffk" path="res://samurai/e interact.png" id="37_xkc7v"]
 
 [sub_resource type="Curve" id="Curve_wrsij"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.602339, 0.769231), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,7 +46,7 @@ point_count = 3
 size = Vector2(7, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1h2qf"]
-radius = 5.79162
+radius = 5.79163
 height = 26.7306
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwcw7"]
@@ -53,7 +54,7 @@ radius = 13.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yd8sj"]
-radius = 8.0
+radius = 7.0
 height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muw40"]
@@ -1568,7 +1569,7 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1.68, 1)
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -1595,12 +1596,13 @@ player = NodePath("../..")
 [node name="Joystick" type="Node2D" parent="CanvasLayer"]
 
 [node name="UI" type="CanvasLayer" parent="CanvasLayer/Joystick"]
+visible = false
 
 [node name="Virtual joystick left" parent="CanvasLayer/Joystick/UI" instance=ExtResource("13_r1aym")]
 action_up = "jump"
 
-[node name="attack" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(1008, 388)
+[node name="attack" type="TouchScreenButton" parent="CanvasLayer/Joystick/UI"]
+position = Vector2(936, 430)
 scale = Vector2(0.66875, 0.66875)
 texture_normal = ExtResource("14_nnucc")
 texture_pressed = ExtResource("15_mayd3")
@@ -1608,23 +1610,24 @@ shape_centered = false
 shape_visible = false
 action = "attack1"
 
-[node name="dash" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(894, 351)
+[node name="dash" type="TouchScreenButton" parent="CanvasLayer/Joystick/UI"]
+position = Vector2(822, 393)
 scale = Vector2(0.319, 0.319)
 texture_normal = ExtResource("16_t30tw")
 texture_pressed = ExtResource("17_j03kf")
 action = "dash"
 script = ExtResource("21_l0osn")
 
-[node name="interact" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(1021, 269)
+[node name="interact" type="TouchScreenButton" parent="CanvasLayer/Joystick/UI"]
+visible = false
+position = Vector2(949, 311)
 scale = Vector2(0.31875, 0.31875)
 texture_normal = ExtResource("16_xe3i8")
 texture_pressed = ExtResource("17_jooc6")
-action = "interact"
+action = "dialogue"
 
-[node name="shuriken" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(878, 473)
+[node name="shuriken" type="TouchScreenButton" parent="CanvasLayer/Joystick/UI"]
+position = Vector2(806, 515)
 scale = Vector2(0.319, 0.319)
 texture_normal = ExtResource("20_vi788")
 texture_pressed = ExtResource("21_72ajx")
@@ -1695,7 +1698,15 @@ position = Vector2(-15, 0)
 stream = ExtResource("35_3nkfm")
 autoplay = true
 
+[node name="EInteract" type="Sprite2D" parent="."]
+visible = false
+z_index = 12
+position = Vector2(-1, -23)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("37_xkc7v")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Attack_area_left" to="." method="_on_attack_area_left_body_entered"]
 [connection signal="body_entered" from="Attack_area_right" to="." method="_on_attack_area_right_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43a2fgaia8pl"]
+[gd_scene load_steps=4 format=3 uid="uid://c43a2fgaia8pl"]
 
 [ext_resource type="Script" path="res://death.gd" id="1_iviur"]
+[ext_resource type="Texture2D" uid="uid://bxgvmcllpseqv" path="res://assets/bg/border for scene.png" id="2_fn007"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_656vj"]
 font_size = 64
 
 [node name="death" type="Node2D"]
 script = ExtResource("1_iviur")
+
+[node name="BorderForScene" type="Sprite2D" parent="."]
+position = Vector2(580.889, 323.5)
+scale = Vector2(0.903957, 0.898912)
+texture = ExtResource("2_fn007")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 427.0
@@ -22,9 +28,8 @@ offset_top = 293.0
 offset_right = 817.0
 offset_bottom = 448.0
 theme_override_font_sizes/font_size = 48
-text = "exit
+text = "menu
 "
-flat = true
 
 [node name="restart" type="Button" parent="."]
 offset_left = 301.0
@@ -34,7 +39,7 @@ offset_bottom = 446.0
 theme_override_font_sizes/font_size = 48
 text = "restart
 "
-flat = true
 
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="button_down" from="restart" to="." method="_on_restart_button_down"]
 [connection signal="pressed" from="restart" to="." method="_on_button_pressed"]

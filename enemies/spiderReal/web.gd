@@ -6,6 +6,7 @@ var der = 1
 var player
 
 
+
 func _physics_process(delta):
 	velocity.x = der * speed 
 	
@@ -15,6 +16,6 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if !body.is_in_group("enemy"):
+	if body.is_in_group("player") or body is TileMap:
 		queue_free()
 		

@@ -13,13 +13,16 @@ func _process(delta):
 
 
 
+#
+#func _on_area_entered(area):
+	#if area.get_parent() is player:
+		#Gamestatus.lastLevel = scene
+		#Gamestatus.lives = 3
+		#get_tree().change_scene_to_file(scene)
 
-func _on_area_entered(area):
+
+func _on_area_2d_area_entered(area):
 	if area.get_parent() is player:
 		Gamestatus.lastLevel = scene
 		Gamestatus.lives = 3
 		get_tree().change_scene_to_file(scene)
-
-
-func _on_area_2d_area_entered(area):
-	pass # Replace with function body.

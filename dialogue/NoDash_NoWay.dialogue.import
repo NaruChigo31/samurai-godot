@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://qqrgs24oj40m"
+path="res://.godot/imported/NoDash_NoWay.dialogue-2157a2fbeeb4fc67a05144a2af04ef20.tres"
+
+[deps]
+
+source_file="res://dialogue/NoDash_NoWay.dialogue"
+dest_files=["res://.godot/imported/NoDash_NoWay.dialogue-2157a2fbeeb4fc67a05144a2af04ef20.tres"]
+
+[params]
+
+defaults=true

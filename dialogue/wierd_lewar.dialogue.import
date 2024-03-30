@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bm1045vi6hr4b"
+path="res://.godot/imported/wierd_lewar.dialogue-96b605800a504794e30f3adcc0b473d3.tres"
+
+[deps]
+
+source_file="res://dialogue/wierd_lewar.dialogue"
+dest_files=["res://.godot/imported/wierd_lewar.dialogue-96b605800a504794e30f3adcc0b473d3.tres"]
+
+[params]
+
+defaults=true

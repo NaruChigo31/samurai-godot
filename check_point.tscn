@@ -15,10 +15,11 @@ _data = {
 }
 
 [node name="CheckPoint" type="Area2D"]
+scale = Vector2(0.415, 0.415)
 script = ExtResource("1_g6yx7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ec6m8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -32,12 +33,12 @@ scale = Vector2(0.244444, 0.244444)
 texture = ExtResource("2_0rpr5")
 
 [node name="Double" type="Button" parent="Shop"]
-offset_left = -589.0
-offset_top = 33.0
-offset_right = -278.0
-offset_bottom = 229.0
+offset_left = -589.092
+offset_top = -98.182
+offset_right = -278.092
+offset_bottom = 97.818
 theme_override_font_sizes/font_size = 50
-text = "double
+text = "Double
 1000 souls"
 
 [node name="Dash" type="Button" parent="Shop"]
@@ -46,9 +47,9 @@ anchor_left = -7.10607e-05
 anchor_right = 0.214773
 anchor_bottom = 0.240278
 offset_left = 196.455
-offset_top = 32.7273
+offset_top = -130.909
 offset_right = 285.455
-offset_bottom = 88.7273
+offset_bottom = -74.9093
 theme_override_font_sizes/font_size = 50
 text = "Dash
 1500 souls
@@ -56,16 +57,26 @@ text = "Dash
 metadata/_edit_use_anchors_ = true
 
 [node name="Shuriken" type="Button" parent="Shop"]
-offset_left = -196.0
-offset_top = 33.0
-offset_right = 166.0
-offset_bottom = 197.0
+offset_left = -196.364
+offset_top = -65.4547
+offset_right = 165.636
+offset_bottom = 98.5453
 theme_override_font_sizes/font_size = 50
-text = "shuriken
+text = "Shuriken
 2000 souls"
+
+[node name="Button" type="Button" parent="Shop"]
+offset_left = -130.909
+offset_top = 130.909
+offset_right = 131.091
+offset_bottom = 276.909
+theme_override_font_sizes/font_size = 50
+text = "+ 1 Live 
+1000 souls"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="pressed" from="Shop/Double" to="." method="_on_double_pressed"]
 [connection signal="pressed" from="Shop/Dash" to="." method="_on_dash_pressed"]
 [connection signal="pressed" from="Shop/Shuriken" to="." method="_on_shuriken_pressed"]
+[connection signal="pressed" from="Shop/Button" to="." method="_on_button_pressed"]

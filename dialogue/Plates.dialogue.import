@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c4ve010ramah2"
+path="res://.godot/imported/Plates.dialogue-e37c1a41687ccd02689adc8677b1a4b4.tres"
+
+[deps]
+
+source_file="res://dialogue/Plates.dialogue"
+dest_files=["res://.godot/imported/Plates.dialogue-e37c1a41687ccd02689adc8677b1a4b4.tres"]
+
+[params]
+
+defaults=true

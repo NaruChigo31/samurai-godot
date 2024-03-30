@@ -251,9 +251,17 @@ func _on_area_2d_area_entered(area):
 		if SPEED > 0:
 			SPEED = SPEED / 2
 		$WebTimer.start()
-
+	if area.is_in_group("Interactable"):
+		$EInteract.visible = true
+		$CanvasLayer/Joystick/UI/interact.visible = true
 func _on_web_timer_timeout():
 	SPEED = 100
+	
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("Interactable"):
+		$EInteract.visible = false
+		$CanvasLayer/Joystick/UI/interact.visible = false
+
 
 
 func _on_attack_area_left_body_entered(body):
@@ -278,3 +286,5 @@ func _on_attack_area_right_body_entered(body):
 			print("attacked right",enemyAttacked)
 		else:
 			enemyAttacked = false
+
+

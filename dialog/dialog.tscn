@@ -5,20 +5,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb84g"]
 size = Vector2(19, 35)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q80ji"]
-load_path = "res://.godot/imported/icon.svg-17eb5d3e2a3cfbe59852220758c5b7bd.editor.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xc2k"]
+size = Vector2(19, 35)
 
-[node name="Dialog" type="Area2D"]
+[node name="Dialog" type="Area2D" groups=["Interactable"]]
 collision_layer = 2
 script = ExtResource("1_dhp4e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_cb84g")
+debug_color = Color(0.858824, 0.756863, 0.160784, 0.419608)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -10.0
-offset_top = -4.0
-offset_right = 9.0
-offset_bottom = 18.0
-texture = SubResource("CompressedTexture2D_q80ji")
+[node name="Area" type="Area2D" parent="." groups=["Interactable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+visible = false
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_8xc2k")

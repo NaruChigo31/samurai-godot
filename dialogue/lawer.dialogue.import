@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cxs5k50v2qtrc"
+path="res://.godot/imported/lawer.dialogue-21d7085dfda10a35b60c55c2f6ac0cce.tres"
+
+[deps]
+
+source_file="res://dialogue/lawer.dialogue"
+dest_files=["res://.godot/imported/lawer.dialogue-21d7085dfda10a35b60c55c2f6ac0cce.tres"]
+
+[params]
+
+defaults=true

@@ -149,6 +149,8 @@ position = Vector2(576, 324)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_1qtl7")
 animation = &"start"
+frame = 28
+frame_progress = 1.0
 
 [node name="BoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 3
@@ -156,30 +158,40 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -496.0
-offset_top = -456.0
-offset_bottom = -26.0
+offset_left = -568.0
+offset_top = -408.0
+offset_right = 39.0
+offset_bottom = 22.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.87, 0.87)
 theme_override_constants/separation = 30
 
 [node name="start" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 texture_normal = ExtResource("31_a1wh1")
 texture_pressed = ExtResource("32_k5ox8")
 texture_hover = ExtResource("33_w4me8")
 
 [node name="settings" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("30_ugu72")
 texture_pressed = ExtResource("35_0mbi4")
 texture_hover = ExtResource("36_pgadw")
 
 [node name="exit" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 texture_normal = ExtResource("32_igt7k")
 texture_pressed = ExtResource("38_4ayqv")
 texture_hover = ExtResource("39_3yfkk")
 
-[connection signal="pressed" from="BoxContainer/start" to="." method="_on_start_pressed"]
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 1160.0
+offset_bottom = 648.0
+
+[connection signal="button_up" from="BoxContainer/start" to="." method="_on_start_button_up"]
 [connection signal="pressed" from="BoxContainer/exit" to="." method="_on_exit_pressed"]

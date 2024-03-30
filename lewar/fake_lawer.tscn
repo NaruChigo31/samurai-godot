@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cc0nbmnv8d80c"]
+
+[ext_resource type="Script" path="res://fake_lewar.gd" id="1_82uc7"]
+[ext_resource type="Texture2D" uid="uid://dmaijh7k6bgf" path="res://lewar/lawer1.png" id="2_5hufe"]
+[ext_resource type="Texture2D" uid="uid://dap2hkhcxr2vg" path="res://lewar/lawer2.png" id="3_q1nk0"]
+[ext_resource type="Texture2D" uid="uid://c188wjucbkrd5" path="res://lewar/lawer3.png" id="4_iywx1"]
+[ext_resource type="AudioStream" uid="uid://bffaejxe2ti2c" path="res://assets/sounds/lawer.mp3" id="5_t1x1h"]
+[ext_resource type="PackedScene" uid="uid://deiqmijquikk8" path="res://dialog/dialog.tscn" id="6_hjn36"]
+[ext_resource type="Resource" uid="uid://c6kl0ocnog542" path="res://dialogue/fake_lawer.dialogue" id="7_jbatg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eeno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5hufe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q1nk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iywx1")
+}],
+"loop": true,
+"name": &"activate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_iywx1")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5hufe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nth2c"]
+
+[node name="fake_lawer" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["Interactable"]]
+script = ExtResource("1_82uc7")
+
+[node name="AnimatedLawer" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(7.37607e-07, 7.37607e-07)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_1eeno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nth2c")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t1x1h")
+
+[node name="Dialog" parent="." instance=ExtResource("6_hjn36")]
+position = Vector2(0, -8)
+dialogue_resource = ExtResource("7_jbatg")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

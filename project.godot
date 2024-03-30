@@ -10,15 +10,19 @@ config_version=5
 
 [application]
 
-config/name="samurai animation"
+config/name="samurais_revange_ALFA"
 run/main_scene="res://scene/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/Samurai icon.png"
 
 [autoload]
 
 Gamestatus="*res://gamestatus.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
@@ -64,7 +68,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", "res://dialogue/go_back.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", "res://dialogue/go_back.dialogue", "res://dialogue/secret tip.dialogue", "res://dialogue/secret_tip2.dialogue", "res://dialogue/fastLearn.dialogue", "res://dialogue/right_exit.dialogue", "res://dialogue/wierd_lewar.dialogue", "res://dialogue/bad_chest.dialogue", "res://dialogue/lawer.dialogue", "res://dialogue/long_wait.dialogue", "res://dialogue/fake_lawer.dialogue", "res://dialogue/Plates.dialogue", "res://dialogue/find_lawer.dialogue", "res://dialogue/platform_doesn\'t_work.dialogue", "res://dialogue/to_platform.dialogue", "res://dialogue/NoDash_NoWay.dialogue", "res://dialogue/extra_lewar.dialogue", "res://dialogue/shop tip.dialogue")
 
 [layer_names]
 
@@ -73,4 +77,6 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="forward_plus"
+renderer/rendering_method.web="forward_plus"
+textures/vram_compression/import_etc2_astc=true

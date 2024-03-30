@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://caxi7eb1u4buc"
+path="res://.godot/imported/right_exit.dialogue-2ec5a94144caf936e37cb976e57feeda.tres"
+
+[deps]
+
+source_file="res://dialogue/right_exit.dialogue"
+dest_files=["res://.godot/imported/right_exit.dialogue-2ec5a94144caf936e37cb976e57feeda.tres"]
+
+[params]
+
+defaults=true

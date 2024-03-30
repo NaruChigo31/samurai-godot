@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if entered:
-		if Input.is_action_just_pressed("interact") and closed:
+		if Input.is_action_just_pressed("dialogue") and closed:
 			AnimatedSprite.play("opening")
 			await get_tree().create_timer(0.8).timeout
 			closed = false

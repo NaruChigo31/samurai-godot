@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	if inside:
 		if !used:
-			if Input.is_action_just_pressed("interact"):
+			if Input.is_action_just_pressed("dialogue"):
 				animatedSprite.play("activate")
 				await get_tree().create_timer(0.5).timeout
 				animatedSprite.play("activated")

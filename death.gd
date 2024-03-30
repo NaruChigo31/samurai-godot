@@ -12,8 +12,16 @@ func _process(delta):
 
 
 func _on_restart_pressed():
-	get_tree().change_scene_to_file(Gamestatus.lastLevel)
+	var level = Gamestatus.lastLevel
+	print(level)
+	get_tree().change_scene_to_file(level)
 
 
 func _on_exit_pressed():
 	get_tree().change_scene_to_file("res://scene/menu.tscn")
+
+
+func _on_restart_button_down():
+	var level = Gamestatus.lastLevel
+	print(level)
+	get_tree().change_scene_to_file(level)

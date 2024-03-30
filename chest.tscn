@@ -81,7 +81,7 @@ scale = Vector2(0.156, 0.156)
 sprite_frames = SubResource("SpriteFrames_ixya0")
 animation = &"opening"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Interactable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1.5)

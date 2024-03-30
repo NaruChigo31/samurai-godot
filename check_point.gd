@@ -50,3 +50,9 @@ func _on_double_pressed():
 			Gamestatus.coins -= 1000
 
 
+
+
+func _on_button_pressed():
+	if Gamestatus.coins >= 1000:
+		Gamestatus.lives += 1
+		Gamestatus.coins -= 1000

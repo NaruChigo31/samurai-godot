@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dii5dq5t7e6xk"
+path="res://.godot/imported/long_wait.dialogue-663d9c4c9a75afeefbc324aa141ca5ca.tres"
+
+[deps]
+
+source_file="res://dialogue/long_wait.dialogue"
+dest_files=["res://.godot/imported/long_wait.dialogue-663d9c4c9a75afeefbc324aa141ca5ca.tres"]
+
+[params]
+
+defaults=true

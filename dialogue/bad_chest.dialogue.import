@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dtkf60elmhg2u"
+path="res://.godot/imported/bad_chest.dialogue-a7ea90011b0539ece8cf6e94c873163e.tres"
+
+[deps]
+
+source_file="res://dialogue/bad_chest.dialogue"
+dest_files=["res://.godot/imported/bad_chest.dialogue-a7ea90011b0539ece8cf6e94c873163e.tres"]
+
+[params]
+
+defaults=true

@@ -22,9 +22,10 @@ func _ready():
 func _process(delta):
 	if alive:
 		if entered:
-			if Input.is_action_just_pressed("interact") and closed:
+			if Input.is_action_just_pressed("dialogue") and closed:
 				AnimatedSprite.play("opening")
 				await get_tree().create_timer(0.8).timeout
+				attack = true
 				closed = false
 		if closed:
 			attack = false

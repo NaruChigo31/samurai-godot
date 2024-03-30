@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dcp0uo3pbtbe"
+path="res://.godot/imported/shop tip.dialogue-1924a8c59c43f94acc0efa52adfd0390.tres"
+
+[deps]
+
+source_file="res://dialogue/shop tip.dialogue"
+dest_files=["res://.godot/imported/shop tip.dialogue-1924a8c59c43f94acc0efa52adfd0390.tres"]
+
+[params]
+
+defaults=true

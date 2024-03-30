@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 ## The action to use for advancing the dialogue
-const NEXT_ACTION = &"ui_accept"
+const NEXT_ACTION = &"interact"
 
 ## The action to use to skip typing the dialogue
 const SKIP_ACTION = &"ui_cancel"

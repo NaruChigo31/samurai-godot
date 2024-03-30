@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dt7whhqvveiwb" path="res://enemies/enemy green/enemy soul idle-Sheet.png" id="6_ml7l7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk1ww"]
-radius = 38.3872
-height = 92.1292
+radius = 20.3962
+height = 72.6929
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3v0u"]
 atlas = ExtResource("3_18m1a")
@@ -195,22 +195,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkvo5"]
-size = Vector2(62.6644, 69.1032)
+size = Vector2(48.0226, 57.0769)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5j0v"]
-size = Vector2(242, 20)
+size = Vector2(224, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ok1t"]
-size = Vector2(21.1057, 34.9803)
+size = Vector2(13.5528, 20.6084)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctql0"]
-size = Vector2(19.1796, 35.0114)
+size = Vector2(13.5898, 21.5898)
 
 [node name="Green enemy" type="Node2D" groups=["enemy"]]
-scale = Vector2(0.64, 0.64)
 
-[node name="Enemy_body" type="RigidBody2D" parent="." groups=["enemy"]]
-scale = Vector2(0.986106, 1.00503)
+[node name="Enemy_body" type="RigidBody2D" parent="."]
+scale = Vector2(1, 1.019)
 sleeping = true
 lock_rotation = true
 script = ExtResource("1_cknfk")
@@ -219,19 +218,18 @@ script = ExtResource("1_cknfk")
 scale = Vector2(0.66, 0.405)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_body/Area2D"]
+position = Vector2(0, 2.4231)
 scale = Vector2(0.520003, 1)
 shape = SubResource("CapsuleShape2D_nk1ww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy_body"]
-position = Vector2(1.58452, -6.21872)
-scale = Vector2(0.189395, 0.222982)
+position = Vector2(-0.57144, -8.75702)
+scale = Vector2(0.171429, 0.20183)
 sprite_frames = SubResource("SpriteFrames_edqqt")
-animation = &"Attack"
-frame = 5
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_body"]
-position = Vector2(3.42702e-06, 1.31453)
+position = Vector2(0, -2.98023e-08)
 rotation = 3.14159
 scale = Vector2(0.354, 0.533)
 shape = SubResource("RectangleShape2D_jkvo5")
@@ -244,26 +242,26 @@ autostart = true
 [node name="left_area" type="Area2D" parent="Enemy_body"]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Enemy_body/left_area"]
-position = Vector2(-134.684, 0)
+position = Vector2(-127, 0)
 shape = SubResource("RectangleShape2D_m5j0v")
 
 [node name="right_area" type="Area2D" parent="Enemy_body"]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Enemy_body/right_area"]
-position = Vector2(134.684, 0)
+position = Vector2(130, 0)
 shape = SubResource("RectangleShape2D_m5j0v")
 
 [node name="attack_right" type="Area2D" parent="Enemy_body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_body/attack_right"]
-position = Vector2(20.06, 0)
+position = Vector2(14.2236, -3.43474)
 shape = SubResource("RectangleShape2D_7ok1t")
 
 [node name="attack_left" type="Area2D" parent="Enemy_body"]
 position = Vector2(75.0426, -31.8398)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_body/attack_left"]
-position = Vector2(-94.1395, 31.8398)
+position = Vector2(-87.2477, 28.8957)
 shape = SubResource("RectangleShape2D_ctql0")
 
 [connection signal="area_shape_entered" from="Enemy_body/Area2D" to="Enemy_body" method="_on_area_2d_area_shape_entered"]

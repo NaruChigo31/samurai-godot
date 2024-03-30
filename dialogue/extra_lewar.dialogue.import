@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://btolnwfd61tgj"
+path="res://.godot/imported/extra_lewar.dialogue-797cfb096299b4f99a522748c3609ca9.tres"
+
+[deps]
+
+source_file="res://dialogue/extra_lewar.dialogue"
+dest_files=["res://.godot/imported/extra_lewar.dialogue-797cfb096299b4f99a522748c3609ca9.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c6kl0ocnog542"
+path="res://.godot/imported/fake_lawer.dialogue-b937e2fac832f4370870fb8a5427a9e4.tres"
+
+[deps]
+
+source_file="res://dialogue/fake_lawer.dialogue"
+dest_files=["res://.godot/imported/fake_lawer.dialogue-b937e2fac832f4370870fb8a5427a9e4.tres"]
+
+[params]
+
+defaults=true

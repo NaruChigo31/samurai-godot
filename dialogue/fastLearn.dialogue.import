@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://febqsm5dutxg"
+path="res://.godot/imported/fastLearn.dialogue-22894252ce6879e9beda99e1a610ff29.tres"
+
+[deps]
+
+source_file="res://dialogue/fastLearn.dialogue"
+dest_files=["res://.godot/imported/fastLearn.dialogue-22894252ce6879e9beda99e1a610ff29.tres"]
+
+[params]
+
+defaults=true

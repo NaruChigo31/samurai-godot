@@ -28,18 +28,20 @@ func _physics_process(delta):
 		if direction == 1:
 			Animated_sprite.flip_h = false
 			Animated_sprite.play("Run")
-			velocity.x = delta * direction * SPEED
 		elif direction == -1:
 			Animated_sprite.flip_h = true
 			Animated_sprite.play("Run")
-			velocity.x = delta * direction * SPEED
 		elif  direction == 0:
 			Animated_sprite.play("idle")
-			velocity.x = delta * direction * SPEED
+		velocity.x = delta * direction * SPEED
 	if death == true:
 		exitRight = true
 		exitLeft = true
-		await get_tree().create_timer(0.8).timeout
+		Animated_sprite.play("death")
+		var soul = SOULCOIN.instantiate()
+		await get_tree().create_timer(0.6).timeout
+		soul.position = position
+		get_parent().add_child(soul)
 		queue_free()
 	if attack:
 		SPEED = 0
@@ -51,11 +53,7 @@ func _physics_process(delta):
 func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area is attack_uhh and !death or area is attack_uhh_right and !death or area.is_in_group("shuriken") and !death:
 		if death_count == 3:
-			Animated_sprite.play("death")
-			var soul = SOULCOIN.instantiate()
-			soul.position = position
-			get_parent().add_child(soul)
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+
 			death = true
 		death_count+=1
 		print(death_count)
@@ -96,9 +94,7 @@ func _on_left_area_body_exited(body):
 
 func _on_right_area_body_exited(body):
 	if body is CharacterBody2D:
-		chasing_right = false
-		
-		
+		chasing_right = false	
 
 
 func _on_attack_right_body_entered(body):
@@ -106,7 +102,6 @@ func _on_attack_right_body_entered(body):
 	if body.is_in_group("player"):
 		while exitRight == false:
 			direction = 0
-			emotion = 3
 			attack = true
 			chasing_right = false
 			Animated_sprite.play("Attack")
@@ -118,7 +113,6 @@ func _on_attack_left_body_entered(body):
 	if body is CharacterBody2D:
 		while exitLeft == false:
 			direction = 0
-			emotion = 3
 			Animated_sprite.flip_h = true
 			attack = true
 			chasing_left = false
